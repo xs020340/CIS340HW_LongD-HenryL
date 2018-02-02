@@ -21,25 +21,24 @@ public class LongDoanPA0201 {
 		double fine=0;
 		String output="";
 		int stop = JOptionPane.YES_OPTION;
-		int dayFeb;
-		//initialize dayFeb
-		if (JOptionPane.showConfirmDialog(null, "Is this year a leap year or not? \n(Default: Not leap year; 28 days in February.)")==JOptionPane.YES_OPTION){
-			dayFeb=29;
-		} else {
+		int dayFeb=29;
+		//dayFeb check
+		if (JOptionPane.showConfirmDialog(null, "Is this year a leap year or not? "
+				+ "\n(Default: Leap year - 29 days in February.)")==JOptionPane.NO_OPTION) 
 			dayFeb=28;
-		}
 					
 		
 		//input actual month
 		while (stop==JOptionPane.YES_OPTION){
 			try{
 				actualMonth = Integer.parseInt(JOptionPane.showInputDialog("Enter actual return month"));
-				if (actualMonth<0 || actualMonth>12){
+				if (actualMonth<1 || actualMonth>12){
 					throw new Exception(); //invalid month; go to catch
 				}
 				break;
 			} catch (Exception ex){
-				stop = JOptionPane.showConfirmDialog(null, "Invalid Input, would you like to enter agian?");
+				JOptionPane.showMessageDialog(null, "Invalid Input for month (1~12)." , "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+				stop = JOptionPane.showConfirmDialog(null, "Would you like to enter agian?");
 				if (stop!=JOptionPane.YES_OPTION){
 					JOptionPane.showMessageDialog(null, "Exit Program");
 					System.exit(0);
@@ -59,7 +58,7 @@ public class LongDoanPA0201 {
 				case 7:
 				case 8:
 				case 10:
-					if (actualDay<0 || actualDay>31){
+					if (actualDay<1 || actualDay>31){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
@@ -67,19 +66,20 @@ public class LongDoanPA0201 {
 				case 6:
 				case 9:
 				case 11:
-					if (actualDay<0 || actualDay>30){
+					if (actualDay<1 || actualDay>30){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
 				case 2: 
-					if (actualDay<0 || actualDay>dayFeb){
+					if (actualDay<1 || actualDay>dayFeb){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
 				}
 				break;
 			} catch (Exception ex){
-				stop = JOptionPane.showConfirmDialog(null, "Invalid Input, would you like to enter agian?");
+				JOptionPane.showMessageDialog(null, "Invalid Input for day." , "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+				stop = JOptionPane.showConfirmDialog(null, "Would you like to enter agian?");
 				if (stop!=JOptionPane.YES_OPTION){
 					JOptionPane.showMessageDialog(null, "Exit Program");
 					System.exit(0);
@@ -91,12 +91,13 @@ public class LongDoanPA0201 {
 		while (stop==JOptionPane.YES_OPTION){
 			try{
 				expectedMonth = Integer.parseInt(JOptionPane.showInputDialog("Enter expected return month"));
-				if (expectedMonth<0 || expectedMonth>12){
+				if (expectedMonth<1 || expectedMonth>12){
 					throw new Exception(); //invalid month; go to catch
 				}
 				break;
 			} catch (Exception ex){
-				stop = JOptionPane.showConfirmDialog(null, "Invalid Input, would you like to enter agian?");
+				JOptionPane.showMessageDialog(null, "Invalid Input for month (1~12)." , "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+				stop = JOptionPane.showConfirmDialog(null, "Would you like to enter agian?");
 				if (stop!=JOptionPane.YES_OPTION){
 					JOptionPane.showMessageDialog(null, "Exit Program");
 					System.exit(0);
@@ -116,7 +117,7 @@ public class LongDoanPA0201 {
 				case 7:
 				case 8:
 				case 10:
-					if (expectedDay<0 || expectedDay>31){
+					if (expectedDay<1 || expectedDay>31){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
@@ -124,19 +125,20 @@ public class LongDoanPA0201 {
 				case 6:
 				case 9:
 				case 11:
-					if (expectedDay<0 || expectedDay>30){
+					if (expectedDay<1 || expectedDay>30){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
 				case 2: 
-					if (expectedDay<0 || expectedDay>dayFeb){
+					if (expectedDay<1 || expectedDay>dayFeb){
 						throw new Exception(); //invalid day; go to catch
 					}
 					break;
 				}
 				break;
 			} catch (Exception ex){
-				stop = JOptionPane.showConfirmDialog(null, "Invalid Input, would you like to enter agian?");
+				JOptionPane.showMessageDialog(null, "Invalid Input for day." , "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
+				stop = JOptionPane.showConfirmDialog(null, "Would you like to enter agian?");
 				if (stop!=JOptionPane.YES_OPTION){
 					JOptionPane.showMessageDialog(null, "Exit Program");
 					System.exit(0);
