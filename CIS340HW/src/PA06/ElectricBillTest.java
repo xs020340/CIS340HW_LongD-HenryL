@@ -70,7 +70,7 @@ public static void main(String[] args) {
 				break;
 			}catch (Exception ex){
 				JOptionPane.showMessageDialog(null, "Wrong customer ID." , "ERROR MESSAGE", JOptionPane.ERROR_MESSAGE);
-				stop = JOptionPane.showConfirmDialog(null, "Re-enter the value?");
+				stop = JOptionPane.showConfirmDialog(null, "Re-enter the ID?");
 				if (stop!=JOptionPane.YES_OPTION){
 					JOptionPane.showMessageDialog(null, "Exit Program");
 					System.exit(0);
@@ -199,7 +199,7 @@ public static void addCustomer(int custNumber, String fName, String lName, int c
 	// add a new customer object to the customers array
 	// you must double check the array size before adding a new customer to the array
 	if(Customer.getNumberOfCustomers()<customers.length){
-		if(custType==1) 
+		if(custType==0) 
 			customers[Customer.getNumberOfCustomers()]= new Customer(custNumber, fName, lName, custType, new Residential(noOfKWH, billMonth)); 
 		else
 			customers[Customer.getNumberOfCustomers()]= new Customer(custNumber, fName, lName, custType, new Commercial(noOfKWH, billMonth));

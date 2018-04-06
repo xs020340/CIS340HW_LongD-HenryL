@@ -25,14 +25,16 @@ public class Residential extends ElectricBill{
 	@Override
 	public void computeBill() {
 		double billAmt=0.0;
-		if (this.getBillMonth()<=9 && this.getBillMonth()>=6){
-			if (this.getNoOfKWH()<=500){
-				billAmt=BASE_RESIDENTIAL_CUST+0.04604*this.getNoOfKWH();
-			} else if (this.getNoOfKWH()>500){
-				billAmt=BASE_RESIDENTIAL_CUST+0.04604*500+.09*(this.getNoOfKWH()-500);
+		int billMonth=this.getBillMonth();
+		int KWH=this.getNoOfKWH();
+		if (billMonth<=9 && billMonth>=6){
+			if (KWH<=500){
+				billAmt=BASE_RESIDENTIAL_CUST+0.04604*KWH;
+			} else if (KWH>500){
+				billAmt=BASE_RESIDENTIAL_CUST+0.04604*500+.09*(KWH-500);
 			}
 		} else {
-			billAmt=BASE_RESIDENTIAL_CUST+0.04604*this.getNoOfKWH();
+			billAmt=BASE_RESIDENTIAL_CUST+0.04604*KWH;
 		}
 		this.setBillAmount(billAmt);
 	}
