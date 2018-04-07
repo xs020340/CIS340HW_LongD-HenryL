@@ -1,0 +1,3 @@
+44321584	JJ	BB	Residential	350	Jul	22.86
+27701760	L	P	Residential	600	Nov	34.37
+51631223	Jo	Da	Commercial	700	Jul	55.90

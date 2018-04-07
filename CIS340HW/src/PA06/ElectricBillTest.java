@@ -3,7 +3,7 @@ package PA06;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import java.io.*;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 
 //*********************************************************************
@@ -178,10 +178,10 @@ public static void main(String[] args) {
 public static double getSum(){
 	// finds the sum of the customers bills
 	double sum=0.0;
-	ElectricBill temp;
+	//ElectricBill temp;
 	for(int i=0; i<Customer.getNumberOfCustomers(); i++){
-		temp=customers[i].getBill();
-		sum+=temp.getBillAmount();
+		//temp=customers[i].getBill();
+		sum+=customers[i].getBill().getBillAmount();
 	}
 	return sum;
 }
@@ -209,18 +209,28 @@ public static void addCustomer(int custNumber, String fName, String lName, int c
 
 public static void sortArray(){
 	// use the selection sort to sort the arrays based on bill amount
-	Arrays.sort(customers);
+	//Arrays.sort(customers);
+	for (int i=0; i<customers.length; i++) {
+		for (int j=i; j<customers.length; j++) {
+			Customer temp;
+			if (customers[j].getBill().getBillAmount()<customers[i].getBill().getBillAmount()) {
+				temp=customers[j];
+				customers[j]=customers[i];
+				customers[i]=temp;
+			}
+		}
+	}
 }
 
 public static void writeToFile(){
 	// write bill objects to file
 	String fileOutput="";
-	fileName="customers.txt";
+	fileName="customers";
 	while (0<1){
-	    java.io.File file = new java.io.File(fileName);
+	    java.io.File file = new java.io.File((fileName+=".txt"));
 	    if (file.exists()) {
 	      System.out.println("File already exists");
-	      fileName+=" - 1";
+	      fileName+="-1";
 	    }
 	    break;
 	}
